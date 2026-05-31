@@ -24,7 +24,6 @@ FullUrl = UrlControl()
 def ServerRequest():
     response = requests.get(FullUrl)
     HtmlData = response.text
-    #print(HtmlData)
     return HtmlData
 
 html_doc = ServerRequest()
@@ -55,10 +54,17 @@ FilterResponse()
 
 AiInput = FilterResponse()
 
+with open("AISystemContent.txt", "r") as file:
+    AISystemContent = file.read()
+
 response: ChatResponse = chat(model='gemma4', messages=[
-  {
+    {
+        'role': 'system',
+        'content': 'please use a max of 2 lines',
+    },
+    {
     'role': 'user',
-    'content': AiInput,
+    'content': AISystemContent,
   },
 ])
 
