@@ -7,7 +7,7 @@ from ollama import ChatResponse
 # List of URLs. Add the url for the control you wanna check for AISVS this is from C so for example C01-Training-Data-Integrity-and-Traceability.md
 # for the ASVS this starts from the / after en so for example 0x10-V1-Encoding-and-Sanitization.md
 Url = [
-    "C09-Orchestration-and-Agentic-Action.md",
+    "C01-Training-Data-Integrity-and-Traceability.md",
 ]
 
 #change this for AISVS = https://github.com/OWASP/AISVS/blob/main/1.0/en/0x10-
