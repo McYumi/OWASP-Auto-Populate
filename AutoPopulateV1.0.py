@@ -4,11 +4,14 @@ from ollama import chat
 from bs4 import BeautifulSoup
 from ollama import ChatResponse
 
-# List of URLs
+# List of URLs. Add the url for the control you wanna check for AISVS this is from C so for example C01 -Training-Data-Integrity-and-Traceability.md
+# for the ASVS this starts from the / after en so for example 0x10-V1-Encoding-and-Sanitization.md
 Url = [
     "C09-Orchestration-and-Agentic-Action.md",
 ]
 
+#change this for AISVS = https://github.com/OWASP/AISVS/blob/main/1.0/en/0x10-
+#change this for ASVS = https://github.com/OWASP/ASVS/blob/master/5.0/en/
 BaseUrl = "https://github.com/OWASP/AISVS/blob/main/1.0/en/0x10-"
 
 def extract_text_between_numbers(text):
@@ -68,7 +71,7 @@ def process_url(url, url_index):
     extracted_texts = extract_text_between_numbers(result)
     return controls, extracted_texts
     
-#can be adjusted to get the perfect result for your needs.
+#System content can and should be adjusted to get the perfect result for your needs.
 def make_system_content():
     with open("ExampleSkillSheet.md", "r") as file:
         part1SystemContent = file.read()
