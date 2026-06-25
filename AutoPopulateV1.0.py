@@ -6,10 +6,7 @@ from ollama import ChatResponse
 
 # List of URLs
 Url = [
-    "C11-Adversarial-Robustness.md",
-    "C12-Privacy.md",
-    "C13-Monitoring-and-Logging.md",
-    "C14-Human-Oversight.md",
+    "C09-Orchestration-and-Agentic-Action.md",
 ]
 
 BaseUrl = "https://github.com/OWASP/AISVS/blob/main/1.0/en/0x10-"
@@ -48,7 +45,7 @@ def process_url(url, url_index):
         file.write(str(control_context))
 
     # Extract relevant table data
-    scrape_result = soup.find_all("td", limit=75)
+    scrape_result = soup.find_all("td", limit=150)
     with open("unfilteredoutput.txt", "w") as f:
         f.write(str(scrape_result))
     
@@ -61,6 +58,7 @@ def process_url(url, url_index):
     
     # Find controls
     controls = re.findall(r"\d+\.\d+\.\d+", result)
+    print(f"Controls found: {controls}")
     
     # Save filtered output
     with open("FilteredOutput.txt", "w") as file:
@@ -86,7 +84,6 @@ SystemContent = make_system_content()
 # Loop through each URL
 for url_index, url in enumerate(Url):
     controls, extracted_texts = process_url(url, url_index)
-    print(f"Controls found: {controls}")
 
     # Loop through each control's text
 # Inside the inner loop where you process each control
