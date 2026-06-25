@@ -1,0 +1,863 @@
+Canonical Enterprise AI Platform Reference Architecture
+AISVS End-to-End Baseline Assessment Environment
+1. Purpose
+This canonical environment defines a realistic enterprise AI ecosystem intended to:
+•Serve as the persistent reference architecture across all AISVS controls
+•Provide deterministic context for testing guidance
+•Enable cross-control reasoning and attack-path chaining
+•Support human-led and autonomous AI-based assessments
+•Cover the broadest possible AISVS control surface
+•Simulate realistic enterprise AI operational complexity
+This environment is intentionally designed to include:
+•Traditional ML
+•Generative AI
+•Agentic AI
+•RAG architectures
+•MLOps pipelines
+•Multi-tenant deployments
+•Third-party dependencies
+•Human-in-the-loop processes
+•Hybrid-cloud infrastructure
+•Supply-chain exposure
+2. Organization Profile
+Organization
+Apex Financial Group (AFG)
+A multinational financial services organization operating in:
+•Retail banking
+•Insurance
+Classification: Internal•Wealth management
+•Fraud analytics
+•Customer support operations
+Regulatory Exposure
+Subject to:
+•GDPR
+•PCI DSS
+•SOC 2
+•ISO 27001
+•Regional AI governance obligations
+•Internal model risk governance
+3. Enterprise AI Program Overview
+AFG operates multiple production AI systems:
+SystemPurpose
+Customer Support CopilotInternal employee assistant
+Public Banking AssistantCustomer-facing conversational AI
+Fraud Detection PlatformTransaction anomaly detection
+Document Intelligence System Loan and claims document extraction
+Executive Knowledge Assistant Enterprise RAG assistant
+Autonomous Operations Agent Internal workflow automation
+Voice AI PlatformReal-time call-center transcription and assistance
+Model Evaluation PlatformBenchmarking and safety validation
+The environment includes:
+•Internal models
+•Third-party APIs
+•Open-source models
+Classification: Internal•Fine-tuned LLMs
+•Classical ML models
+•Agentic workflows
+•Continuous retraining pipelines
+4. High-Level Architecture
+4.1 AI Domains
+A. Generative AI
+•Customer-facing chatbot
+•Internal copilot
+•RAG assistants
+•Document summarization
+•Agentic orchestration
+B. Traditional ML
+•Fraud detection
+•Credit scoring
+•Risk classification
+•Recommendation systems
+C. Hybrid AI Systems
+•LLM + retrieval workflows
+•LLM + tool execution
+•LLM + ML decision pipelines
+5. Core AI Components
+5.1 Model Layer
+External Foundation Models
+Used through API providers:
+•
+GPT-class models
+Classification: Internal•Claude-class models
+•Gemini-class models
+Used for:
+•General reasoning
+•Summarization
+•Customer support
+•Agent orchestration
+Internal Fine-Tuned Models
+Customer Support LLM
+Fine-tuned on:
+•Historical support conversations
+•Product documentation
+•Internal KBs
+•RLHF preference data
+Fraud Triage Assistant
+Fine-tuned on:
+•Fraud analyst decisions
+•Historical case outcomes
+•Synthetic fraud scenarios
+Internal Coding Assistant
+Fine-tuned on:
+•Internal repositories
+•Engineering documentation
+•Infrastructure runbooks
+Traditional ML Models
+•
+Gradient boosting fraud models
+Classification: Internal•Credit-risk classifiers
+•Transaction anomaly detection
+•Behavioral analytics models
+Embedding Models
+Used for:
+•Semantic search
+•RAG retrieval
+•Document clustering
+•Similarity analysis
+Both:
+•Open-source embeddings
+•Vendor-managed embeddings
+5.2 Data Layer
+Enterprise Data Lake
+Data Sources
+•Customer transactions
+•CRM records
+•Support conversations
+•Internal documentation
+•Emails
+•Financial reports
+•Fraud investigations
+•Voice transcripts
+•Public datasets
+•Third-party intelligence feeds
+Classification: InternalDataset Categories
+Dataset Type
+Examples
+Fine-Tuning Corpora Support chats, KB exports
+RLHF DatasetsHuman ranking/preference data
+Evaluation DatasetsSafety benchmarks
+Synthetic DatasetsGenerated fraud samples
+Labeling DatasetsHuman annotation exports
+Retrieval CorporaInternal documents
+Telemetry DatasetsUser interactions
+Model Feedback Data User ratings and escalations
+Data Storage Technologies
+•Object storage
+•Relational databases
+•Data warehouse
+•Vector databases
+•Feature stores
+•Distributed file systems
+5.3 Retrieval-Augmented Generation (RAG)
+RAG Architecture
+Retrieval Sources
+•Internal wiki
+•SharePoint exports
+•HR policies
+•Security runbooks
+•Regulatory documents
+Classification: Internal•
+Customer procedures
+Vector Databases
+•Multi-tenant vector indexes
+•Department-scoped retrieval
+•Metadata-based filtering
+Retrieval Pipeline
+1. Document ingestion
+2. Chunking
+3. Embedding generation
+4. Metadata tagging
+5. Index synchronization
+6. Runtime retrieval
+5.4 Agentic AI Layer
+Autonomous Operations Agent
+Capabilities:
+•Ticket creation
+•Workflow execution
+•Database lookups
+•Email generation
+•Calendar actions
+•Internal API calls
+Tool Integrations
+•Jira
+•ServiceNow
+•Slack
+•GitHub
+•Internal HR APIs
+Classification: Internal•
+CRM systems
+Agent Risks Included
+•Prompt injection
+•Tool abuse
+•Excessive permissions
+•Cross-agent trust
+•Recursive execution
+•Unauthorized actions
+5.5 Human-in-the-Loop Components
+Human Labeling Platform
+Used for:
+•RLHF scoring
+•Safety labeling
+•Fraud annotation
+•Toxicity review
+Human Roles
+•Data annotators
+•Fraud analysts
+•AI reviewers
+•Safety moderators
+Included Risks
+•Insider poisoning
+•Label manipulation
+•Annotation fraud
+•Unauthorized exports
+5.6 Training & MLOps Pipelines
+Classification: InternalMLOps Platform
+Capabilities:
+•Dataset ingestion
+•Feature engineering
+•Automated retraining
+•Experiment tracking
+•Model registry
+•Deployment orchestration
+•CI/CD integration
+CI/CD Pipeline
+Stages
+1. Dataset validation
+2. Security scanning
+3. Model training
+4. Safety evaluation
+5. Benchmark testing
+6. Governance approval
+7. Deployment
+8. Runtime monitoring
+Pipeline Technologies
+•Kubernetes
+•GPU clusters
+•Workflow orchestration
+•Artifact registries
+•Container registries
+Classification: Internal5.7 Runtime Inference Layer
+Customer-Facing AI APIs
+Exposed publicly through:
+•API gateway
+•Mobile banking
+•Web applications
+Protections
+•Prompt filtering
+•Rate limiting
+•DLP controls
+•Abuse detection
+•Safety moderation
+Internal AI APIs
+Used by:
+•Employees
+•Analysts
+•Operations teams
+•Engineering staff
+Included Risks
+•Overprivileged access
+•Prompt leakage
+•Data exfiltration
+•Tenant crossover
+5.8 Security & Governance Layer
+Identity & Access Management
+•
+RBAC
+Classification: Internal•Service accounts
+•SSO integration
+•MFA
+•Conditional access
+Secrets Management
+Stores:
+•API keys
+•Database credentials
+•Model provider tokens
+•Encryption keys
+Governance Platform
+Tracks:
+•Dataset lineage
+•Model approvals
+•Risk acceptance
+•AI inventory
+•Compliance status
+Security Monitoring
+Integrated with:
+•SIEM
+•UEBA
+•SOAR
+•Runtime AI monitoring
+DLP & Data Controls
+Classification: InternalMonitors:
+•Prompt leakage
+•Sensitive outputs
+•Unauthorized exports
+•Regulated data movement
+5.9 Multi-Tenant & Environment Segregation
+Environments
+•Development
+•Staging
+•Production
+•Research sandbox
+Included Risks
+•Cross-environment contamination
+•Production-data leakage
+•Shared embeddings
+•Misconfigured isolation
+Tenant Types
+•Retail banking
+•Insurance
+•Wealth management
+•Internal operations
+Isolation Requirements
+•Dataset segregation
+•Retrieval isolation
+•API segmentation
+•Identity scoping
+Classification: Internal5.10 Third-Party Dependencies
+External Dependencies
+•Foundation model APIs
+•Open-source models
+•Hugging Face artifacts
+•External datasets
+•SaaS AI tooling
+•Labeling vendors
+Included Risks
+•Supply-chain compromise
+•Malicious model artifacts
+•Dependency poisoning
+•Dataset licensing issues
+6. Canonical Data Flows
+Flow A — Fine-Tuning Pipeline
+1. Dataset ingestion
+2. Validation
+3. Labeling
+4. Preprocessing
+5. Training
+6. Evaluation
+7. Governance approval
+8. Deployment
+9. Monitoring
+10. Retraining feedback loop
+Classification: InternalFlow B — RAG Pipeline
+1. Document ingestion
+2. Chunking
+3. Embedding generation
+4. Metadata enrichment
+5. Vector indexing
+6. Retrieval
+7. Prompt augmentation
+8. LLM response generation
+Flow C — Agentic Workflow
+1. User request
+2. Prompt processing
+3. Tool selection
+4. API execution
+5. External system interaction
+6. Result validation
+7. User response generation
+7. Embedded Threat Surface
+This baseline intentionally includes exposure to:
+Threat AreaIncluded
+Prompt injectionYes
+Data poisoningYes
+Model tamperingYes
+Supply-chain attacksYes
+Retrieval abuseYes
+Classification: InternalThreat AreaIncluded
+Tool abuseYes
+Insider threatsYes
+Cross-tenant leakageYes
+Dataset exfiltrationYes
+Privilege escalationYes
+Shadow AI usageYes
+Unsafe autonomyYes
+CI/CD compromiseYes
+Embedding leakageYes
+Training-data contamination Yes
+8. Why This Environment Covers AISVS Broadly
+This architecture supports testing across nearly all AISVS domains because it includes:
+•Full training lifecycle
+•Data governance
+•Supply-chain dependencies
+•Runtime protections
+•Agentic execution
+•Human feedback loops
+•Multi-tenancy
+•AI observability
+•MLOps orchestration
+•RAG ecosystems
+•Fine-tuning workflows
+•Third-party integrations
+Classification: Internal•
+Hybrid AI architectures
+Without these components, many AISVS controls become theoretical rather than
+operationally testable.
+9. Assessor Usage Guidance
+Every AISVS control SHOULD:
+1. Reference the relevant baseline components
+2. Identify affected trust boundaries
+3. Specify applicable data flows
+4. Define validation targets
+5. Map observable evidence
+6. Define automation opportunities
+7. Identify required human validation
+8. Reference relevant attack paths
+This ensures:
+•Cross-control consistency
+•High-quality LLM reasoning
+•Repeatable assessments
+•Deterministic evaluation logic
+•Audit-grade assurance coverage
+Classification: InternalClassification: InternalC1.1.1 — Training Data Origin & Traceability
+Executable Assurance Specification (AISVS Operational Testing Standard)
+1. Control Metadata
+FieldValue
+Control IDC1.1.1
+FrameworkOWASP AISVS v1.0
+DomainC1 — Training Data Integrity & Traceability
+PriorityP0
+Control TypeGovernance / Integrity / Provenance / Supply-Chain Assurance
+Assessment
+ModeTechnical + Operational + Governance
+Canonical
+EnvironmentApex Financial Group (AFG) Enterprise AI Platform
+Ensure all datasets influencing model behavior are attributable,
+Primary Objective reconstructable, governed, and auditable throughout the ML
+lifecycle
+Assurance Model Assertion-Based Validation
+Assessment
+Consumers
+Human Assessors, AI Security Agents, Continuous Assurance
+Platforms
+2. Control Objective
+The organization MUST maintain verifiable provenance, lineage, ownership, integrity,
+and governance records for all datasets influencing:
+•model training,
+•fine-tuning,
+•retraining,
+•RLHF,
+Classification: Internal•evaluation,
+•feature engineering,
+•embedding generation,
+•retrieval augmentation,
+•synthetic data generation,
+•model optimization.
+The organization MUST be able to:
+1. Identify all datasets affecting model behavior
+2. Reconstruct complete dataset lineage
+3. Attribute dataset actions to accountable identities
+4. Detect unauthorized or poisoned datasets
+5. Validate governance and licensing compliance
+6. Investigate data-related AI incidents end-to-end
+3. Canonical Environment Mapping (AFG)
+Primary Systems in Scope
+SystemRelevant Datasets
+Customer Support LLMSupport chats, RLHF rankings, KB exports
+Fraud Detection PlatformTransaction datasets, fraud labels, synthetic fraud data
+Executive Knowledge Assistant SharePoint exports, regulatory corpora, vector indexes
+Autonomous Operations Agent Workflow datasets, operational logs
+Voice AI Platform
+Voice transcripts, moderation annotations
+Relevant Trust Boundaries
+Trust BoundaryRisk
+Third-party dataset ingestionSupply-chain compromise
+Classification: InternalTrust BoundaryRisk
+Human labeling workflowsInsider poisoning
+RAG synchronization pipelinesSensitive document exposure
+CI/CD retraining orchestrationUnauthorized retraining
+Cross-environment dataset movement Data contamination
+External model providers
+Untrusted processing
+4. Threat Model
+Primary Threats
+•Training data poisoning
+•Unauthorized dataset ingestion
+•Shadow dataset usage
+•Supply-chain compromise
+•Governance bypass
+•Provenance tampering
+•Cross-environment contamination
+•Insider manipulation
+•Synthetic data misuse
+•Untracked preprocessing
+5. Control Dependencies
+This control depends on:
+DependencyPurpose
+IAM/RBACAttribution of actions
+Audit loggingEvent reconstruction
+Immutable logging/storage Evidence integrity
+Classification: InternalDependency
+Purpose
+Dataset inventory/catalog Dataset enumeration
+CI/CD telemetryPipeline traceability
+Model registryDataset-to-model correlation
+SIEM integrationDetection capability
+Change managementGovernance enforcement
+PASS confidence MUST be reduced if dependencies are absent or degraded.
+6. Asset Classification Model
+Critical Dataset Classes
+Dataset ClassCriticality
+Production fine-tuning corporaCritical
+Fraud training datasetsCritical
+RLHF datasetsHigh
+Human labeling exportsHigh
+RAG corporaHigh
+Synthetic datasetsHigh
+Embedding-generation datasetsMedium
+Temporary preprocessing artifacts Medium
+Public benchmark datasets
+Low
+Sampling priority MUST align with dataset criticality.
+7. Assessment Preconditions
+Required Visibility
+•Dataset inventory access
+•Lineage platform access
+Classification: Internal•Audit log visibility
+•Pipeline metadata access
+•Governance workflow visibility
+•Model registry visibility
+PASS Preconditions
+A HIGH-CONFIDENCE PASS is NOT possible if:
+•dataset inventory is absent,
+•immutable logging is absent,
+•identity attribution is unavailable,
+•lineage reconstruction is impossible,
+•governance workflows are undocumented.
+8. Assessment Constraints
+The assessment CANNOT conclusively prove:
+•absence of undisclosed datasets,
+•historical completeness of undisclosed systems,
+•organization-wide governance coverage outside visibility scope.
+The assessment MAY ONLY validate observable assurance conditions.
+9. Control Assertions
+Assertion C1.1.1-A-01
+Dataset Inventory Completeness
+Objective
+All production datasets influencing model behavior MUST exist in governance inventory
+systems.
+Classification: InternalValidation Logic
+FAIL if:
+•sampled production datasets are absent from governance inventory,
+•training jobs reference unmanaged datasets,
+•dataset identifiers are duplicated or inconsistent.
+Observable Success Conditions
+•Dataset appears in inventory
+•Unique identifier exists
+•Dataset linked to owning system/team
+•Dataset linked to training pipeline or model
+Observable Failure Conditions
+•Unknown storage locations
+•Pipeline references unmanaged URIs
+•Missing dataset ownership
+•Duplicate dataset identifiers
+Automation Feasibility
+FULL
+Required Evidence
+•Dataset inventory export
+•Pipeline manifests
+•Object storage enumeration
+•Model registry correlation
+Confidence Weight
+Classification: InternalHIGH
+Assertion C1.1.1-A-02
+Provenance Attribution
+Objective
+Dataset origin MUST be attributable and verifiable.
+Validation Logic
+FAIL if sampled datasets lack:
+•source attribution,
+•acquisition records,
+•ownership metadata,
+•licensing metadata,
+•approval records.
+Example (AFG)
+Third-party fraud intelligence feeds imported into the Fraud Detection Platform MUST
+include:
+•vendor attribution,
+•licensing terms,
+•import approval,
+•acquisition timestamps,
+•integrity metadata.
+Observable Success Conditions
+•Source provider recorded
+•Approval workflow linked
+•Ownership metadata present
+Classification: Internal•
+Acquisition timestamp available
+Observable Failure Conditions
+•Informal/manual imports
+•Missing provenance records
+•Unsupported source claims
+•External datasets bypass governance
+Automation Feasibility
+PARTIAL
+Human validation required for:
+•provenance legitimacy,
+•licensing interpretation,
+•supplier trustworthiness.
+Required Evidence
+•Governance workflow records
+•Procurement approvals
+•Dataset metadata
+•Audit logs
+Confidence Weight
+HIGH
+Assertion C1.1.1-A-03
+End-to-End Lineage Reconstruction
+Objective
+Dataset lifecycle MUST be reconstructable from ingestion to deployed model usage.
+Classification: InternalValidation Logic
+FAIL if:
+•lineage chain terminates unexpectedly,
+•transformations are missing,
+•deployment linkage is absent,
+•timestamps are inconsistent.
+Example (AFG)
+The Executive Knowledge Assistant RAG pipeline MUST support reconstruction of:
+1. source repository,
+2. synchronization job,
+3. chunking process,
+4. embedding generation,
+5. vector indexing,
+6. retrieval usage.
+Observable Success Conditions
+•Continuous lineage chain exists
+•Processing stages linked
+•Timestamps consistent
+•Dataset-to-model linkage available
+Observable Failure Conditions
+•Broken lineage graph
+•Missing processing stages
+•Untracked transformations
+•Inconsistent timestamps
+Classification: InternalAutomation Feasibility
+PARTIAL
+Human validation required for:
+•lineage legitimacy,
+•operational consistency validation.
+Required Evidence
+•Lineage graph exports
+•Pipeline execution logs
+•CI/CD telemetry
+•Model registry mappings
+Confidence Weight
+CRITICAL
+Assertion C1.1.1-A-04
+Transformation Accountability
+Objective
+Dataset preprocessing and transformation activities MUST be attributable and
+reproducible.
+Validation Logic
+FAIL if:
+•transformations lack attribution,
+•preprocessing is undocumented,
+•intermediate datasets are unmanaged,
+•reproducibility cannot be demonstrated.
+Classification: InternalExample (AFG)
+Fraud feature-engineering pipelines modifying transaction datasets MUST maintain:
+•transformation logs,
+•script version references,
+•execution metadata,
+•accountable identities.
+Observable Success Conditions
+•Transformation logs retained
+•Script versions linked
+•Execution metadata preserved
+•User/service attribution available
+Observable Failure Conditions
+•Notebook-only preprocessing
+•Manual undocumented modifications
+•Missing execution logs
+•Non-reproducible outputs
+Automation Feasibility
+PARTIAL
+Human validation required for:
+•reproducibility assessment,
+•preprocessing legitimacy.
+Required Evidence
+•
+Pipeline execution logs
+Classification: Internal•Script repositories
+•Version-control records
+•Transformation metadata
+Confidence Weight
+HIGH
+Assertion C1.1.1-A-05
+Governance Workflow Enforcement
+Objective
+Dataset onboarding and usage MUST enforce governance approval workflows.
+Validation Logic
+FAIL if:
+•datasets bypass approval workflow,
+•unapproved imports exist,
+•retention policies are unenforced,
+•environment segregation is violated.
+Example (AFG)
+Research sandbox imports into GPU training clusters MUST:
+•appear in governance inventory,
+•require approval records,
+•preserve ownership attribution,
+•remain environment-scoped.
+Observable Success Conditions
+•
+Approval references present
+Classification: Internal•Environment mapping enforced
+•Access controls applied
+•Retention metadata active
+Observable Failure Conditions
+•Governance bypass
+•Shadow experimentation datasets
+•Excessive permissions
+•Cross-environment contamination
+Automation Feasibility
+PARTIAL
+Human validation required for:
+•governance effectiveness,
+•exception legitimacy.
+Required Evidence
+•Governance approvals
+•IAM logs
+•Retention policies
+•Access-control telemetry
+Confidence Weight
+HIGH
+10. Sampling Methodology
+Minimum Sampling Requirements
+Assessors SHOULD prioritize:
+Classification: Internal1. Production datasets
+2. Externally sourced datasets
+3. Recently modified datasets
+4. Datasets used by autonomous systems
+5. High-criticality datasets
+6. Datasets crossing trust boundaries
+Minimum Coverage Expectations
+Area
+Minimum Coverage
+Production training datasets 100% inventory validation
+Critical datasets≥80% lineage reconstruction
+Retraining pipelines≥1 end-to-end reconstruction
+Third-party datasets≥1 provenance validation
+Human-labeling workflows ≥1 accountability validation
+11. Detection Engineering Expectations
+Expected SIEM/Monitoring Signals
+The organization SHOULD detect:
+•New dataset imports outside governance workflows
+•Unknown storage locations referenced by training jobs
+•Broken lineage relationships
+•Retraining from unapproved datasets
+•Unauthorized dataset synchronization
+•Cross-environment dataset movement
+•High-volume dataset exports
+•Lineage metadata tampering
+Classification: InternalExample Detection (AFG)
+Fraud Detection Platform
+Alert when:
+•new fraud datasets appear without governance registration,
+•retraining pipelines consume unknown datasets,
+•labeling exports bypass lineage tracking.
+12. Evidence Confidence Model
+Evidence TypeReliability
+Immutable audit logsHigh
+Signed lineage metadataHigh
+System-generated telemetry High
+Correlated CI/CD telemetry High
+API exportsMedium
+ScreenshotsLow
+SpreadsheetsLow
+Verbal attestationsVery Low
+AI-generated summariesNon-authoritative
+13. Severity Model
+Failure ConditionSeverity
+Unknown production datasetCritical
+Broken lineage in fraud pipelineCritical
+Missing provenance for third-party datasets High
+Missing ownership attribution
+High
+Classification: InternalFailure ConditionSeverity
+Missing historical versionsMedium
+Incomplete metadataMedium
+Weak retention enforcementMedium
+14. Pass/Fail Logic
+PASS
+Requires:
+•verifiable provenance,
+•reconstructable lineage,
+•attributable transformations,
+•governance enforcement,
+•auditable lifecycle coverage.
+PASS requires:
+•no Critical failures,
+•sufficient High-confidence evidence,
+•minimum sampling coverage achieved.
+FAIL
+Any of:
+•unknown production datasets,
+•broken lineage chains,
+•governance bypass,
+•unattributable preprocessing,
+•unverifiable provenance,
+•unmanaged retraining datasets.
+Classification: InternalPARTIAL
+Controls inconsistently implemented across:
+•environments,
+•dataset classes,
+•pipelines,
+•historical systems.
+INCONCLUSIVE
+Insufficient evidence due to:
+•visibility gaps,
+•missing telemetry,
+•restricted access,
+•incomplete governance tooling.
+15. AI-Agent Operational Constraints
+Autonomous assessors MUST NOT:
+•modify datasets,
+•trigger retraining,
+•alter lineage records,
+•execute destructive preprocessing,
+•invoke production agents unsafely,
+•export regulated datasets,
+•bypass governance workflows.
+All testing MUST remain:
+•read-only where possible,
+•non-destructive,
+•operationally safe.
+Classification: Internal16. Common Blind Spots
+Blind SpotRisk
+Notebook preprocessingUntracked modifications
+Shared service accountsLost attribution
+Temporary preprocessing caches Shadow datasets
+Legacy datasetsMissing provenance
+RAG synchronization jobsSensitive data ingestion
+Synthetic data generationLost lineage
+Human labeling exportsInsider manipulation
+Research sandboxesGovernance bypass
+17. Cross-Control Impact
+Failure of this control weakens assurance for:
+•dataset integrity validation,
+•secure MLOps pipelines,
+•audit logging,
+•AI supply-chain assurance,
+•model reproducibility,
+•access control,
+•retention governance,
+•RAG security controls.
+18. Framework Mapping
+OWASP AISVS
+•
+C1.1.1 — Training Data Origin & Traceability
+OWASP LLM Top 10
+•
+LLM03 — Training Data Poisoning
+Classification: Internal•
+LLM05 — Supply Chain Vulnerabilities
+MITRE ATLAS
+•AML.T0015 — Data Poisoning
+•AML.T0042 — Artifact Manipulation
+•AML.TA0004 — ML Supply Chain Compromise
+NIST AI RMF
+•Govern — Accountability and governance
+•Map — Provenance and traceability
+•Measure — Integrity verification
+•Manage — Lifecycle and supply-chain management
+Classification: Internal
