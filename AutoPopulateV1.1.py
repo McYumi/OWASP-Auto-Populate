@@ -1,6 +1,7 @@
 import re
 import requests
 from ollama import chat
+import subprocess, os, time
 from bs4 import BeautifulSoup
 from ollama import ChatResponse
 
@@ -77,13 +78,13 @@ def process_url(url, url_index):
     
 #System content can and should be adjusted to get the perfect result for your needs.
 def make_system_content():
-    with open("ExampleSkillSheet.md", "r") as file:
-        part1SystemContent = file.read()
+    if os.path.exists("SystemContent.md") == True:
+        with open("SystemContent.md", "r") as file:
+            SystemContent = file.read()
+    else:
+        quit()
     
-    with open("SystemContent.md", "r") as file:
-        part2SystemContent = file.read()
-    
-    FullSystemContent = part2SystemContent
+    FullSystemContent = SystemContent
     print (FullSystemContent)
     return FullSystemContent
 
@@ -105,15 +106,18 @@ for url_index, url in enumerate(Url):
         control_textV2 = SystemContent + control_text + control_context + "this is the control your working on put that as the control id:" + control_number
 
         # Send to AI model
-        response: ChatResponse = chat(
-            model='gemma4',
-            messages=[
-                {'role': 'user', 'content': control_textV2}
-            ],
-            options={
-                "num_ctx": 6000
-            }
-        )
+        try:
+            response: ChatResponse = chat(
+                model='gemma4',
+                messages=[
+                    {'role': 'user', 'content': control_textV2}
+                ],
+                options={
+                    "num_ctx": 6000
+                }
+            )
+        except:
+            print("Error with the AI or the AI promt.")
     
         OllamaOutput = response.message.content
         print(OllamaOutput)
